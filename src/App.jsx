@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
+import UserView from './pages/UserView/UserView'
 import Profiles from './pages/Profiles/Profiles'
 import * as authService from './services/authService'
 
@@ -22,11 +22,13 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  console.log('this is the user', user)
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={<UserView user={user} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
