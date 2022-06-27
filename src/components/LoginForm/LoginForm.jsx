@@ -14,13 +14,18 @@ const LoginForm = props => {
     props.updateMessage('')
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
+  console.log(props.user)
+  let bossEmail = ['admin@help.com']
 
   const handleSubmit = async evt => {
     evt.preventDefault()
     try {
       await authService.login(formData)
-      props.handleSignupOrLogin()
-      navigate('/')
+      props.handleSignupOrLogin() // sets the User
+      let access = props.user
+      console.log('this should be the e-mail', access)
+      bossEmail.includes(access.email) ? console.log('its true as fuck') : console.log('this is fake as shit')
+      // navigate('/')
     } catch (err) {
       props.updateMessage(err.message)
     }

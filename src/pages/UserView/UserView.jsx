@@ -1,4 +1,4 @@
-
+import './UserView.css'
 
 const UserView = (props) => {
   return ( 

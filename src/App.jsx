@@ -4,18 +4,18 @@ import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import UserView from './pages/UserView/UserView'
+import BossView from './pages/BossView/BossView'
 import Profiles from './pages/Profiles/Profiles'
 import * as authService from './services/authService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
-  console.log(user)
 
   const handleLogout = () => {
     authService.logout()
     setUser(null)
-    navigate('/')
+    navigate('/login')
   }
 
   const handleSignupOrLogin = () => {
@@ -29,6 +29,7 @@ const App = () => {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<UserView user={user} />} />
+        <Route path="/boss" element={<BossView user={user} />} />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
