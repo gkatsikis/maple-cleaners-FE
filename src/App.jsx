@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -7,9 +7,20 @@ import UserView from './pages/UserView/UserView'
 import BossView from './pages/BossView/BossView'
 import Profiles from './pages/Profiles/Profiles'
 import * as authService from './services/authService'
+import * as profileService from './services/profileService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [profile, setProfile] = useState()
+
+  useEffect(()=> {
+    const fetchData = async () => {
+      const data = await profileService.getOneProfile(user.id)
+      setProfile(data.profile)
+    }
+    fetchData()
+  }, [user.id])
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -22,21 +33,26 @@ const App = () => {
     setUser(authService.getUser())
   }
 
-  console.log('this is the user', user)
 
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<UserView user={user} />} />
-        <Route path="/boss" element={<BossView user={user} />} />
+        <Route
+          path="/"
+          element={<UserView />}
+        />
+        <Route
+          path="/boss"
+          element={<BossView />}
+        />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route
           path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+          element={<Login handleSignupOrLogin={handleSignupOrLogin} user={user} />}
         />
         <Route
           path="/profiles"

@@ -8,7 +8,7 @@ const LoginPage = props => {
   const updateMessage = msg => {
     setMessage(msg)
   }
-
+  console.log('loginpage', props)
   return (
     <main className={styles.container}>
       <h1>Log In</h1>
@@ -16,6 +16,7 @@ const LoginPage = props => {
       <LoginForm
         handleSignupOrLogin={props.handleSignupOrLogin}
         updateMessage={updateMessage}
+        user={props.user}
       />
     </main>
   )
