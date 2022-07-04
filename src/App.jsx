@@ -12,6 +12,8 @@ import * as profileService from './services/profileService'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [profile, setProfile] = useState()
+  
+  const navigate = useNavigate()
 
   useEffect(()=> {
     const fetchData = async () => {
@@ -19,9 +21,9 @@ const App = () => {
       setProfile(data.profile)
     }
     fetchData()
-  }, [user.id])
+    // profile.role === 'admin' ? navigate('/boss') : navigate('/')
+  }, [user])
 
-  const navigate = useNavigate()
 
   const handleLogout = () => {
     authService.logout()
@@ -33,18 +35,24 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  console.log('app user', user)
+  console.log('app profile', profile)
 
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
+        {/* <Route
+          path="/"
+          element={ profile.role === 'admin' ? <BossView user={user} profile={profile} /> : <UserView user={user} profile={profile} />}
+        /> */}
         <Route
           path="/"
-          element={<UserView />}
+          element={<UserView user={user} profile={profile} />}
         />
         <Route
           path="/boss"
-          element={<BossView />}
+          element={<BossView user={user} profile={profile} />}
         />
         <Route
           path="/signup"
@@ -52,7 +60,7 @@ const App = () => {
         />
         <Route
           path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} user={user} />}
+          element={<Login handleSignupOrLogin={handleSignupOrLogin} user={user} profile={profile} />}
         />
         <Route
           path="/profiles"
