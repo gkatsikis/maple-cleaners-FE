@@ -21,7 +21,6 @@ const App = () => {
       setProfile(data.profile)
     }
     fetchData()
-    // profile.role === 'admin' ? navigate('/boss') : navigate('/')
   }, [user])
 
 
@@ -48,7 +47,7 @@ const App = () => {
         /> */}
         <Route
           path="/"
-          element={<UserView user={user} profile={profile} />}
+          element={user ? <UserView user={user} profile={profile} /> : <Navigate to="/login" />}
         />
         <Route
           path="/boss"
