@@ -5,13 +5,13 @@ import AccountBalance from '../../components/AccountBalance/AccountBalance'
 
 const UserView = ({ user, profile }) => {
   
-  
+  console.log("lets see what this does")
   
 
   return ( 
     <div className="shell">
-      <h1>Hey, {profile.name}</h1>
-      <AccountBalance />
+      <h1>Hey, {user.name}</h1>
+      <AccountBalance profile={profile} />
       {/* // request pickup button
       // PickupHistory */}
     </div>

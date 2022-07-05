@@ -21,7 +21,7 @@ const App = () => {
       setProfile(data.profile)
     }
     fetchData()
-  }, [user])
+  }, [user.id])
 
 
   const handleLogout = () => {

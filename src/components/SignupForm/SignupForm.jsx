@@ -8,6 +8,8 @@ const SignupForm = props => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    address: '',
+    zipcode: '',
     password: '',
     passwordConf: '',
   })
@@ -31,7 +33,7 @@ const SignupForm = props => {
     }
   }
 
-  const { name, email, password, passwordConf } = formData
+  const { name, email, address, zipcode, password, passwordConf } = formData
 
   const isFormInvalid = () => {
     return !(name && email && password && password === passwordConf)
@@ -43,7 +45,7 @@ const SignupForm = props => {
       onSubmit={handleSubmit}
       className={styles.container}
     >
-      <div className={styles.inputContainer}>
+      <div>
         <label htmlFor="name" className={styles.label}>Name</label>
         <input
           type="text"
@@ -54,8 +56,8 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
+      <div>
+        <label htmlFor="email">Email</label>
         <input
           type="text"
           autoComplete="off"
@@ -65,7 +67,29 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div>
+        <label htmlFor="address">Address</label>
+        <input
+          type="text"
+          autoComplete="off"
+          id="address"
+          value={address}
+          name="address"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="zipcode">Zipcode</label>
+        <input
+          type="text"
+          autoComplete="off"
+          id="zipcode"
+          value={zipcode}
+          name="zipcode"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
         <label htmlFor="password" className={styles.label}>Password</label>
         <input
           type="password"
@@ -76,8 +100,8 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
+      <div>
+        <label htmlFor="confirm">
           Confirm Password
         </label>
         <input
@@ -89,8 +113,8 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <div>
+        <button disabled={isFormInvalid()}>
           Sign Up
         </button>
         <Link to="/">
