@@ -1,11 +1,18 @@
+// React
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+
+// Components
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import UserView from './pages/UserView/UserView'
 import BossView from './pages/BossView/BossView'
 import Profiles from './pages/Profiles/Profiles'
+import Request from './pages/Request/Request'
+import Payment from './pages/Payment/Payment'
+
+//Services
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
 
@@ -54,17 +61,13 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        {/* <Route
-          path="/"
-          element={ profile.role === 'admin' ? <BossView user={user} profile={profile} /> : <UserView user={user} profile={profile} />}
-        /> */}
         <Route
           path="/"
           element={user ? <UserView user={user} profile={profile} /> : <Navigate to="/login" />}
         />
         <Route
           path="/boss"
-          element={<BossView user={user} profile={profile} />}
+          element={user ? <BossView user={user} profile={profile} /> : <Navigate to="/login" />}
         />
         <Route
           path="/signup"
@@ -73,6 +76,14 @@ const App = () => {
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} user={user} profile={profile} />}
+        />
+        <Route 
+          path="/request"
+          element={<Request />}
+        />
+        <Route
+          path="/payment"
+          element={<Payment />}
         />
         <Route
           path="/profiles"
