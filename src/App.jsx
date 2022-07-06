@@ -10,19 +10,32 @@ import * as authService from './services/authService'
 import * as profileService from './services/profileService'
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser())
+  const [user, setUser] = useState()
   const [profile, setProfile] = useState()
   
   const navigate = useNavigate()
 
   useEffect(()=> {
     const fetchData = async () => {
+      const data = await authService.getUser()
+      setUser(data)
+    }
+    fetchData()
+  }, [])
+
+  useEffect(()=> {
+    if(!user){
+      return
+    }
+    const fetchData = async () => {
       const data = await profileService.getOneProfile(user.id)
       setProfile(data.profile)
     }
     fetchData()
-  }, [user.id])
+  }, [user])
 
+
+    console.log('user.id', user)
 
   const handleLogout = () => {
     authService.logout()

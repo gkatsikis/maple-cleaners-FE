@@ -15,7 +15,7 @@ const AccountBalance = ({ profile }) => {
   return ( 
     <div className="shell">
       <h1>Your Account Balance</h1>
-      <h2>{profile.balance}</h2>
+      {/* <h2>{profile.balance}</h2> */}
       {/* <h2>{profile.balance === 0 ? 0.00 : profile.balance}</h2> */}
     </div>
    );

@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './LoginForm.module.css'
 import * as authService from '../../services/authService'
+
 
 const LoginForm = (props) => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,13 @@ const LoginForm = (props) => {
     password: '',
   })
   const navigate = useNavigate()
+
+  useEffect(()=> {
+    if(!props.profile){
+      return
+    }
+    props.profile.role === 'admin' ? navigate('/boss') : navigate('/')
+  }, [props.profile])
 
   const handleChange = e => {
     props.updateMessage('')
@@ -20,8 +28,6 @@ const LoginForm = (props) => {
     try {
       await authService.login(formData)
       props.handleSignupOrLogin()
-      navigate('/')
-      props.profile.role === 'admin' ? navigate('/boss') : navigate('/')
       console.log('handle submit here', props.profile.role)
     } catch (err) {
       props.updateMessage(err.message)
