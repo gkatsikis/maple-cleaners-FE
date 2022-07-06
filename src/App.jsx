@@ -77,10 +77,6 @@ const App = () => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} user={user} profile={profile} />}
         />
-        <Route 
-          path="/request"
-          element={<Request />}
-        />
         <Route
           path="/payment"
           element={<Payment />}

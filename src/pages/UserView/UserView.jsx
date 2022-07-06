@@ -3,6 +3,7 @@ import './UserView.css'
 // Components
 import AccountBalance from '../../components/AccountBalance/AccountBalance'
 import PickupHistory from '../../components/PickupHistory/PickupHistory'
+import Request from '../Request/Request'
 
 // React
 import { Link } from 'react-router-dom'
@@ -23,9 +24,7 @@ const UserView = ({ user, profile }) => {
       <Link to='/payment'>
         Pay Now
       </Link>
-      <Link to='/request'>
-        Schedule Pickup
-      </Link>
+      <Request />
       <PickupHistory />
     </div>
    );
