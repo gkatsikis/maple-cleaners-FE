@@ -17,8 +17,10 @@ const UserView = ({ user, profile }) => {
   return ( 
     <div className="shell">
       <h1>Hey, {user.name}</h1>
+      <div className="customerBox">
       <AccountBalance profile={profile} />
       <Request />
+      </div>
       <PickupHistory />
     </div>
    );

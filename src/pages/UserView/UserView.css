@@ -1,8 +1,15 @@
 .shell {
-  display: flex;
-  flex-direction: column;
   text-align: center;
-  margin-top: 3rem;
+}
+
+h1 {
+  /* text-align: center; */
+}
+
+.customerBox {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
 }
 
 

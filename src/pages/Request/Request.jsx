@@ -3,11 +3,11 @@ import './Request.css'
 const Request = (props) => {
   return ( 
     <div className="shell">
-      <h1>Request Pick Up</h1>
+      <h2>Request Pick Up</h2>
       <form>
         <input type="date" />
         <input type="time" />
-        <textarea />
+        <textarea className="commentBox" />
       </form>
     </div>
    );
