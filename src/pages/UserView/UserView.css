@@ -1,0 +1,11 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+
+@media (min-width: 600px) {
+
+}
