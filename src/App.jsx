@@ -15,10 +15,12 @@ import Payment from './pages/Payment/Payment'
 //Services
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
+import * as orderService from './services/orderService'
 
 const App = () => {
   const [user, setUser] = useState()
   const [profile, setProfile] = useState()
+  const [orders, setOrders] = useState()
   
   const navigate = useNavigate()
 
@@ -41,8 +43,13 @@ const App = () => {
     fetchData()
   }, [user])
 
-
-    console.log('user.id', user)
+  useEffect(()=> {
+    const fetchData = async () => {
+      const data = await orderService.getAllOrders()
+      setOrders(data)
+    }
+    fetchData()
+  }, [])
 
   const handleLogout = () => {
     authService.logout()
@@ -53,9 +60,6 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
-
-  console.log('app user', user)
-  console.log('app profile', profile)
 
   return (
     <>

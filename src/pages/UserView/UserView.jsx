@@ -9,7 +9,7 @@ import Request from '../Request/Request'
 
 const UserView = ({ user, profile }) => {
   
-  console.log("lets see what this does", profile)
+  
   
   if(!profile || !user){
     return null

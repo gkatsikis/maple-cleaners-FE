@@ -14,6 +14,18 @@ async function getAllOrders() {
   }
 }
 
+async function getAllCustomerOrders(profileId) {
+  try {
+    const res = await fetch(BASE_URL, {
+      headers: { Authorization: `Bearer ${tokenService.getToken()}` },
+  })
+  console.log('this is res', res)
+  } catch(error) {
+    console.log(error)
+    throw error
+  }
+}
+
 async function getOneOrder(id) {
   try {
     const res = await fetch(`${BASE_URL}/${id}`, {
@@ -26,4 +38,4 @@ async function getOneOrder(id) {
   }
 }
 
-export { getAllOrders, getOneOrder }
+export { getAllOrders, getOneOrder, getAllCustomerOrders }

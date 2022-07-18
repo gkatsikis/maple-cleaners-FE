@@ -22,7 +22,7 @@ const LoginForm = (props) => {
     props.updateMessage('')
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
-  console.log(props)
+  
   const handleSubmit = async evt => {
     evt.preventDefault()
     try {
