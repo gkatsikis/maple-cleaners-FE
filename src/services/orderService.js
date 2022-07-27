@@ -1,6 +1,6 @@
 import * as tokenService from '../services/tokenService'
 
-const BASE_URL = `${process.env.REACT_APP_API_URL}/api/orders`
+const BASE_URL = `${process.env.REACT_APP_API_URL}/api/orders/`
 
 async function createOrder(order) {
   try {
@@ -22,6 +22,7 @@ async function createOrder(order) {
 async function getAllOrders() {
   try {
     const res = await fetch(BASE_URL, {
+      method: "GET",
       headers: { Authorization: `Bearer ${tokenService.getToken()}` },
     })
     return await res.json()

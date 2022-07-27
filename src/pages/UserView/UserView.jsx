@@ -21,7 +21,7 @@ const UserView = ({ user, profile }) => {
       <AccountBalance profile={profile} />
       <Request />
       </div>
-      <PickupHistory />
+      <PickupHistory profile={profile} />
     </div>
    );
 }
