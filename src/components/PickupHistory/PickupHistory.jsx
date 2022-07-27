@@ -3,7 +3,7 @@ import './PickupHistory.css'
 const PickupHistory = ({ profile, orders }) => {
 
   let myOrders = orders.filter(order => order.profile_id===profile.id)
-  console.log('personal orders', myOrders)
+  
   return ( 
     <div className="shell">
       <h2>Your Pickup History</h2>
