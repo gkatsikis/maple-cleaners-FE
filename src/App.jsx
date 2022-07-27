@@ -20,7 +20,7 @@ import * as orderService from './services/orderService'
 const App = () => {
   const [user, setUser] = useState()
   const [profile, setProfile] = useState()
-  const [orders, setOrders] = useState()
+  // const [orders, setOrders] = useState()
   
   const navigate = useNavigate()
 
@@ -43,13 +43,7 @@ const App = () => {
     fetchData()
   }, [user])
 
-  useEffect(()=> {
-    const fetchData = async () => {
-      const data = await orderService.getAllOrders()
-      setOrders(data)
-    }
-    fetchData()
-  }, [user])
+
 
   const handleLogout = () => {
     authService.logout()
@@ -85,6 +79,7 @@ const App = () => {
           path="/payment"
           element={<Payment />}
         />
+        {/* {if(user===)} */}
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}

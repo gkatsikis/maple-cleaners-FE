@@ -2,10 +2,15 @@ import * as tokenService from '../services/tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_API_URL}/api/orders`
 
-async function getAllOrders() {
+async function createOrder(order) {
   try {
     const res = await fetch(BASE_URL, {
-      headers: { Authorization: `Bearer ${tokenService.getToken()}` },
+      method: "POST",
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify(order),
     })
     return await res.json()
   } catch (error) {
@@ -14,13 +19,13 @@ async function getAllOrders() {
   }
 }
 
-async function getAllCustomerOrders(profileId) {
+async function getAllOrders() {
   try {
     const res = await fetch(BASE_URL, {
       headers: { Authorization: `Bearer ${tokenService.getToken()}` },
-  })
-  console.log('this is res', res)
-  } catch(error) {
+    })
+    return await res.json()
+  } catch (error) {
     console.log(error)
     throw error
   }
@@ -38,4 +43,4 @@ async function getOneOrder(id) {
   }
 }
 
-export { getAllOrders, getOneOrder, getAllCustomerOrders }
+export { getAllOrders, getOneOrder, createOrder }
