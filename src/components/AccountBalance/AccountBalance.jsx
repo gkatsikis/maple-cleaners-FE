@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const AccountBalance = ({ profile }) => {
-  // const [accountBalance, setAccountBalance] = useState()
 
-  
   
   return (
     <div className="shell">

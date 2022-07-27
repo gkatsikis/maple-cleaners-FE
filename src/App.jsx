@@ -49,7 +49,7 @@ const App = () => {
       setOrders(data)
     }
     fetchData()
-  }, [])
+  }, [user])
 
   const handleLogout = () => {
     authService.logout()
