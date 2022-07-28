@@ -1,9 +1,15 @@
 import './PickupHistory.css'
+import * as orderService from '../../services/orderService'
 
 const PickupHistory = ({ profile, orders }) => {
 
   let myOrders = orders.filter(order => order.profile_id===profile.id)
-  
+
+  const handleDelete = async (id) => {
+    console.log('this is id', id)
+    await orderService.deleteOrder(id)
+  }
+
   return ( 
     <div className="shell">
       <h2>Your Pickup History</h2>
@@ -15,6 +21,7 @@ const PickupHistory = ({ profile, orders }) => {
               {order.cost !==0 ? order.cost : null}
             </p>
             <p>{order.status}</p>
+              {order.status === 'pending' ? <button type="button" onClick={handleDelete} className="deleteBtn" >Cancel</button> : null}
           </div>
         ))}
     </div>

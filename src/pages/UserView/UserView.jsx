@@ -7,7 +7,7 @@ import Request from '../Request/Request'
 
 
 
-const UserView = ({ user, profile, orders }) => {
+const UserView = ({ user, profile, orders, setOrders }) => {
   
   
   
@@ -21,7 +21,7 @@ const UserView = ({ user, profile, orders }) => {
       <AccountBalance profile={profile} />
       <Request />
       </div>
-      <PickupHistory orders={orders} profile={profile} />
+      <PickupHistory orders={orders} profile={profile} setOrders={setOrders} />
     </div>
    );
 }
