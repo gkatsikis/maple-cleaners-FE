@@ -5,17 +5,21 @@ import PendingRequests from '../../components/PendingRequests/PendingRequests';
 
 // React & Services
 import * as profileService from '../../services/profileService'
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const BossView = ({ profile, user, orders }) => {
+  const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await profileService.getAllProfiles()
+      setProfiles(data)
     }
     fetchData()
   }, [])  
+
+  console.log('all the profiles', profiles)
 
   return ( 
     <div className="shell">
