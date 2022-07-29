@@ -9,7 +9,6 @@ import Login from './pages/Login/Login'
 import UserView from './pages/UserView/UserView'
 import BossView from './pages/BossView/BossView'
 import Profiles from './pages/Profiles/Profiles'
-import Request from './pages/Request/Request'
 import Payment from './pages/Payment/Payment'
 
 //Services
