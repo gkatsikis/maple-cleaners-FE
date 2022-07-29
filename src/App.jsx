@@ -72,7 +72,7 @@ const App = () => {
         />
         <Route
           path="/boss"
-          element={user ? <BossView user={user} profile={profile} /> : <Navigate to="/login" />}
+          element={user ? <BossView user={user} profile={profile} orders={orders} /> : <Navigate to="/login" />}
         />
         <Route
           path="/signup"

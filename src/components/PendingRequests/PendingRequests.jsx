@@ -1,6 +1,10 @@
 import './PendingRequests.css'
 
-const PendingRequests = (props) => {
+
+const PendingRequests = ({ orders }) => {
+
+
+
   return ( 
     <div className="shell">
       <h1>Pending Requests</h1>
