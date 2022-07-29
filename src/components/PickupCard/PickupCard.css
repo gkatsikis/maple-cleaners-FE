@@ -1,0 +1,9 @@
+.singleOrderCard {
+  border: 2px solid black;
+  margin: 7px;
+  width: 100%;
+}
+
+@media (min-width: 600px){ 
+  
+}
