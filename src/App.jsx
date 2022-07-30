@@ -48,9 +48,7 @@ const App = () => {
       setOrders(data)
     }
     fetchData()
-  }, [profile])
-
-  console.log('orders', orders)
+  }, [user])
 
   const handleLogout = () => {
     authService.logout()
