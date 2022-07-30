@@ -2,7 +2,7 @@ import './PendingRequests.css'
 import PendingRequest from '../PendingRequest/PendingRequest';
 
 
-const PendingRequests = ({ orders }) => {
+const PendingRequests = ({ profiles, orders }) => {
 
   let pendingOrders = orders.filter(order => order.status === 'pending'
   )
@@ -12,6 +12,9 @@ const PendingRequests = ({ orders }) => {
   return ( 
     <div className="shell">
       <h1>Pending Requests</h1>
+      {pendingOrders.map((order) => (
+        <PendingRequest order={order} profiles={profiles} key={order.id} />
+      ))}
     </div>
    );
 }

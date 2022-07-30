@@ -8,7 +8,7 @@ import * as profileService from '../../services/profileService'
 import React, { useState, useEffect } from 'react';
 
 
-const BossView = ({ profile, user, orders }) => {
+const BossView = ({ user, orders }) => {
   const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
