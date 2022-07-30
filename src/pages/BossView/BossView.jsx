@@ -19,16 +19,14 @@ const BossView = ({ profile, user, orders }) => {
     fetchData()
   }, [])  
 
-  console.log('all the profiles', profiles)
-
   return ( 
     <div className="shell">
       <h1>Welcome Boss</h1>
-      <PendingRequests orders={orders} />
+      <PendingRequests orders={orders} profiles={profiles} />
       {/*
-      CurrentRequests
+      <CurrentRequests profiles={profiles} orders={orders} />
       Request History Button
-      Search Customers 
+      <AllCustomers profiles={profiles} />
       */}
     </div>
    );
