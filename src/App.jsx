@@ -29,6 +29,9 @@ const App = () => {
       setUser(data)
     }
     fetchData()
+    return function cleanup(){
+      setUser()
+    }
   }, [])
 
   useEffect(()=> {
@@ -40,6 +43,9 @@ const App = () => {
       setProfile(data.profile)
     }
     fetchData()
+    return function cleanup(){
+      setProfile()
+    }
   }, [user])
 
   useEffect(()=> {
@@ -48,6 +54,9 @@ const App = () => {
       setOrders(data)
     }
     fetchData()
+    return function cleanup(){
+      setOrders()
+    }
   }, [user])
 
   const handleLogout = () => {
