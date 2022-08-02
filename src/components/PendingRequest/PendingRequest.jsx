@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 
 
 const PendingRequest = ({ profiles, order }) => {
-
+    
     
     return ( 
       <div className="oneRequest">
