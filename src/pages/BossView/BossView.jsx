@@ -2,6 +2,7 @@ import './BossView.css'
 
 // Components
 import PendingRequests from '../../components/PendingRequests/PendingRequests';
+import AllCustomers from '../../components/AllCustomers/AllCustomers.tsx'
 
 // React & Services
 import * as profileService from '../../services/profileService'
@@ -26,8 +27,8 @@ const BossView = ({ user, orders }) => {
       {/*
       <CurrentRequests profiles={profiles} orders={orders} />
       Request History Button
-      <AllCustomers profiles={profiles} />
       */}
+      <AllCustomers profiles={profiles} />
     </div>
    );
 }
