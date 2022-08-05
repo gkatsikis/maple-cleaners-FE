@@ -28,7 +28,6 @@ const LoginForm = (props) => {
     try {
       await authService.login(formData)
       props.handleSignupOrLogin()
-      console.log('handle submit here', props.profile.role)
     } catch (err) {
       props.updateMessage(err.message)
     }

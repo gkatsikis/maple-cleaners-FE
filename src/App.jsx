@@ -10,6 +10,7 @@ import UserView from './pages/UserView/UserView'
 import BossView from './pages/BossView/BossView'
 import Profiles from './pages/Profiles/Profiles'
 import Payment from './pages/Payment/Payment'
+import CustomerProfile from './pages/CustomerProfile/CustomerProfile'
 
 //Services
 import * as authService from './services/authService'
@@ -19,6 +20,7 @@ import * as orderService from './services/orderService'
 const App = () => {
   const [user, setUser] = useState()
   const [profile, setProfile] = useState()
+  const [profiles, setProfiles] = useState([])
   const [orders, setOrders] = useState()
   
   const navigate = useNavigate()
@@ -47,6 +49,14 @@ const App = () => {
       setProfile()
     }
   }, [user])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await profileService.getAllProfiles()
+      setProfiles(data)
+    }
+    fetchData()
+  }, [])
 
   useEffect(()=> {
     const fetchData = async () => {
@@ -79,7 +89,7 @@ const App = () => {
         />
         <Route
           path="/boss"
-          element={user ? <BossView user={user} orders={orders} /> : <Navigate to="/login" />}
+          element={user ? <BossView user={user} orders={orders} profiles={profiles} /> : <Navigate to="/login" />}
         />
         <Route
           path="/signup"
@@ -93,10 +103,13 @@ const App = () => {
           path="/payment"
           element={<Payment />}
         />
-        {/* {if(user===)} */}
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/customer/:id"
+          element={<CustomerProfile profiles={profiles} />}
         />
       </Routes>
     </>

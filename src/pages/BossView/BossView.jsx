@@ -10,17 +10,8 @@ import * as profileService from '../../services/profileService'
 import React, { useState, useEffect } from 'react';
 
 
-const BossView = ({ user, orders }) => {
-  const [profiles, setProfiles] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await profileService.getAllProfiles()
-      setProfiles(data)
-    }
-    fetchData()
-  }, [])  
-  console.log('waht is this', profiles)
+const BossView = ({ user, orders, profiles }) => {
+  
   return ( 
     <div className="shell">
       <h1>Welcome Boss</h1>
