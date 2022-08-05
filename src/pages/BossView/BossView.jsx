@@ -2,7 +2,8 @@ import './BossView.css'
 
 // Components
 import PendingRequests from '../../components/PendingRequests/PendingRequests';
-import AllCustomers from '../../components/AllCustomers/AllCustomers.tsx'
+import AllCustomers from '../../components/AllCustomers/AllCustomers.jsx'
+import CurrentRequests from '../../components/CurrentRequests/CurrentRequests';
 
 // React & Services
 import * as profileService from '../../services/profileService'
@@ -19,15 +20,16 @@ const BossView = ({ user, orders }) => {
     }
     fetchData()
   }, [])  
-
+  console.log('waht is this', profiles)
   return ( 
     <div className="shell">
       <h1>Welcome Boss</h1>
-      <PendingRequests orders={orders} profiles={profiles} />
-      {/*
-      <CurrentRequests profiles={profiles} orders={orders} />
-      Request History Button
-      */}
+      <div className="top">
+        <PendingRequests orders={orders} profiles={profiles} />
+        <CurrentRequests profiles={profiles} orders={orders} />
+        {/* Request History Button */}
+
+      </div>
       <AllCustomers profiles={profiles} />
     </div>
    );

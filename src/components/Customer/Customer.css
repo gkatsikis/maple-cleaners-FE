@@ -1,0 +1,9 @@
+
+.customer {
+  display: flex;
+  justify-content: center;
+}
+
+.custName {
+  margin-right: 2rem;
+}

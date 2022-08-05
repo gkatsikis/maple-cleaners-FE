@@ -1,5 +1,4 @@
 import './PendingRequest.css'
-import React, { useEffect } from 'react';
 
 
 const PendingRequest = ({ profiles, order }) => {
@@ -7,6 +6,7 @@ const PendingRequest = ({ profiles, order }) => {
     /*
     let pendingOrderProfile = profiles.filter(profile=> profile.id===order.profile_id)
     console.log('pendingprof', pendingOrderProfile[0].name)
+    / I want to use a useEffect that does nothing if there is not !root of all my problems and see if that works
     */
 
     return ( 

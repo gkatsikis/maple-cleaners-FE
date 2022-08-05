@@ -10,7 +10,7 @@ const PendingRequests = ({ profiles, orders }) => {
   console.log('pend', pendingOrders)
 
   return ( 
-    <div className="shell">
+    <div className="pendingRequests">
       <h1>Pending Requests</h1>
       {pendingOrders.map((order) => (
         <PendingRequest order={order} profiles={profiles} key={order.id} />
