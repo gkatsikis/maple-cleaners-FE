@@ -1,17 +1,16 @@
 import './PendingRequest.css'
 
 
-const PendingRequest = ({ profiles, order }) => {
+const PendingRequest = ({ profile, order }) => {
     
-    /*
-    let pendingOrderProfile = profiles.filter(profile=> profile.id===order.profile_id)
-    console.log('pendingprof', pendingOrderProfile[0].name)
+   
+     /*
     / I want to use a useEffect that does nothing if there is not !root of all my problems and see if that works
     */
 
     return ( 
       <div className="oneRequest">
-        <p></p>
+        <p>Name:{profile.name} </p>
       </div>
      );
   }

@@ -21,7 +21,7 @@ const App = () => {
   const [user, setUser] = useState()
   const [profile, setProfile] = useState()
   const [profiles, setProfiles] = useState([])
-  const [orders, setOrders] = useState()
+  const [orders, setOrders] = useState([])
   
   const navigate = useNavigate()
 
