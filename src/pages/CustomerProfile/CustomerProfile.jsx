@@ -8,23 +8,24 @@ const CustomerProfile = ({ profiles }) => {
   const [custProfile, setCustProfile] = useState()
   const { id } = useParams()
 
-  // useEffect(() => {
-  //   const fetchProfile = async () => {
-  //     try {
-  //       const profileData = await profileService.getOneProfile(id)
-  //       setCustProfile(profileData)
-  //     } catch (error) {
-  //       throw error
-  //     }
-  //   }
-  //   fetchProfile()
-  // }, [id])
-
-  // console.log('look here yo', custProfile.profile.name)
+  useEffect(() => {
+    const getProfile = async () => {
+      try {
+        const prof = profiles.find(profile =>
+          profile.id === parseInt(id)
+        )
+        setCustProfile(prof)
+      } catch (error) {
+        throw error
+      }
+    }
+    getProfile()
+  }, [profiles, id])
 
   return ( 
     <div className="customerProfile">
       <h1>Name in Customer Profile</h1>
+      <p>{custProfile.name}</p>
       {/* <CustomerInfo />
       <OrderHistory />
       <ContactCustomer />
