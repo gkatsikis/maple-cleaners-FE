@@ -1,5 +1,6 @@
 import './AllCustomers.css'
 import Customer from '../Customer/Customer'
+import { Link } from 'react-router-dom'
 
 const AllCustomers = ({ profiles }) => {
 
@@ -7,7 +8,9 @@ const AllCustomers = ({ profiles }) => {
     <div className="shell">
       <h2>Customers</h2>
       {profiles.map((profile) => (
-        <Customer profile={profile} key={profile.id} />
+        <Link to={`/customer/${profile.id}`}>
+          <Customer profile={profile} key={profile.id} />
+        </Link>
       ))}
     </div>
   )

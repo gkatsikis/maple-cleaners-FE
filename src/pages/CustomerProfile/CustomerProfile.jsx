@@ -8,17 +8,19 @@ const CustomerProfile = ({ profiles }) => {
   const [custProfile, setCustProfile] = useState()
   const { id } = useParams()
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const profileData = await profileService.getOneProfile(id)
-        setCustProfile(profileData)
-      } catch (error) {
-        throw error
-      }
-    }
-    fetchProfile()
-  }, [id])
+  // useEffect(() => {
+  //   const fetchProfile = async () => {
+  //     try {
+  //       const profileData = await profileService.getOneProfile(id)
+  //       setCustProfile(profileData)
+  //     } catch (error) {
+  //       throw error
+  //     }
+  //   }
+  //   fetchProfile()
+  // }, [id])
+
+  // console.log('look here yo', custProfile.profile.name)
 
   return ( 
     <div className="customerProfile">
