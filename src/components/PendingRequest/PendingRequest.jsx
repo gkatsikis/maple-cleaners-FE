@@ -2,15 +2,14 @@ import './PendingRequest.css'
 
 
 const PendingRequest = ({ profile, order }) => {
-    
-   
-     /*
-    / I want to use a useEffect that does nothing if there is not !root of all my problems and see if that works
-    */
+
+    // handle update needs to be passed down to go from pending to active
 
     return ( 
       <div className="oneRequest">
-        <p>Name:{profile.name} </p>
+        <p>{profile.name} </p>
+        <p>{profile.address}</p>
+        <p>{order.date}</p>
       </div>
      );
   }
