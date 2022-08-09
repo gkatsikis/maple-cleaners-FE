@@ -3,6 +3,16 @@
   justify-content: space-evenly;
 }
 
+.bottom {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5rem;
+}
+
 .orderhistory-btn {
+  text-decoration: none;
+}
+
+.allcustomers-btn {
   text-decoration: none;
 }

@@ -9,7 +9,7 @@ const LoginForm = (props) => {
     email: '',
     password: '',
   })
-  
+
   const navigate = useNavigate()
 
   useEffect(()=> {
@@ -17,7 +17,7 @@ const LoginForm = (props) => {
       return
     }
     props.profile.role === 'admin' ? navigate('/boss') : navigate('/')
-  }, [props.profile])
+  }, [props.profile, navigate]) // watch out for this son of a bitch navigate if things get screwy
 
   const handleChange = e => {
     props.updateMessage('')
