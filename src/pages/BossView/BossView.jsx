@@ -18,7 +18,7 @@ const BossView = ({ user, orders, profiles }) => {
       <div className="top">
         <PendingRequests orders={orders} profiles={profiles} />
         <CurrentRequests profiles={profiles} orders={orders} />
-        {/* Request History Button */}
+        // Order History
 
       </div>
       <AllCustomers profiles={profiles} />

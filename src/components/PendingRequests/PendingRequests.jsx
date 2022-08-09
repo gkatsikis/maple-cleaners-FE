@@ -6,7 +6,7 @@ const PendingRequests = ({ profiles, orders }) => {
 
   let pendingOrders = orders.filter(order => order.status === 'pending'
   )
-
+  
   return ( 
     <div className="pendingRequests">
       <h1>Pending Requests</h1>

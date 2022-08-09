@@ -11,6 +11,7 @@ import BossView from './pages/BossView/BossView'
 import Profiles from './pages/Profiles/Profiles'
 import Payment from './pages/Payment/Payment'
 import CustomerProfile from './pages/CustomerProfile/CustomerProfile'
+import OrderHistory from './pages/OrderHistory/OrderHistory'
 
 //Services
 import * as authService from './services/authService'
@@ -110,6 +111,10 @@ const App = () => {
         <Route
           path="/customer/:id"
           element={<CustomerProfile profiles={profiles} />}
+        />
+        <Route
+          path="/orderhistory"
+          element={<OrderHistory orders={orders} />}
         />
       </Routes>
     </>
