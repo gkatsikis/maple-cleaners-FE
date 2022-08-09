@@ -1,5 +1,4 @@
 import './PickupHistory.css'
-import * as orderService from '../../services/orderService'
 import PickupCard from '../PickupCard/PickupCard'
 
 

@@ -1,5 +1,5 @@
 import './AllCustomers.css'
-import Customer from '../Customer/Customer'
+import Customer from '../../components/Customer/Customer'
 import { Link } from 'react-router-dom'
 
 const AllCustomers = ({ profiles }) => {

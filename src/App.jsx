@@ -12,6 +12,7 @@ import Profiles from './pages/Profiles/Profiles'
 import Payment from './pages/Payment/Payment'
 import CustomerProfile from './pages/CustomerProfile/CustomerProfile'
 import OrderHistory from './pages/OrderHistory/OrderHistory'
+import AllCustomers from './pages/AllCustomers/AllCustomers'
 
 //Services
 import * as authService from './services/authService'
@@ -107,6 +108,10 @@ const App = () => {
         <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/allcustomers"
+          element={<AllCustomers profiles={profiles} />}
         />
         <Route
           path="/customer/:id"

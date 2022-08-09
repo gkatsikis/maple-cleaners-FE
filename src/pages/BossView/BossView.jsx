@@ -2,12 +2,10 @@ import './BossView.css'
 
 // Components
 import PendingRequests from '../../components/PendingRequests/PendingRequests';
-import AllCustomers from '../../components/AllCustomers/AllCustomers.jsx'
 import CurrentRequests from '../../components/CurrentRequests/CurrentRequests';
 
 // React & Services
-import * as profileService from '../../services/profileService'
-import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 
 
 const BossView = ({ user, orders, profiles }) => {
@@ -18,10 +16,14 @@ const BossView = ({ user, orders, profiles }) => {
       <div className="top">
         <PendingRequests orders={orders} profiles={profiles} />
         <CurrentRequests profiles={profiles} orders={orders} />
-        // Order History
+        <Link 
+        to="/orderhistory"
+        className="orderhistory-btn"
+        >
+          <h2>Order History</h2>
+        </Link>
 
       </div>
-      <AllCustomers profiles={profiles} />
     </div>
    );
 }
