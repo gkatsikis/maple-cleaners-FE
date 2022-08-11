@@ -1,4 +1,5 @@
 import './CustomerProfile.css'
+import AddBalance from '../../components/AddBalance/AddBalance';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 
@@ -25,14 +26,18 @@ const CustomerProfile = ({ profiles }) => {
     return 'loading...'
   }
 
+  console.log('this here', custProfile)
+
   return ( 
     <div className="customerProfile">
-      <h1>Name in Customer Profile</h1>
       <h2>{custProfile.name}</h2>
+      <h3>{custProfile.address} 0{custProfile.zipcode}</h3>
+      <h3>Balance: ${custProfile.balance}</h3>
       {/* <CustomerInfo />
       <OrderHistory />
       <ContactCustomer />
-      <AddBalance /> */}
+       */}
+      <AddBalance profile={custProfile} />
     </div>
    );
 }

@@ -22,7 +22,7 @@ const BossView = ({
       <h1>Welcome Boss</h1>
       <div className="top">
         <PendingRequests orders={orders} profiles={profiles} updateOrder={updateOrder} />
-        <CurrentRequests profiles={profiles} orders={orders} />
+        <CurrentRequests profiles={profiles} orders={orders} updateOrder={updateOrder} />
 
       </div>
       <div className="bottom">

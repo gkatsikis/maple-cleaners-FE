@@ -1,7 +1,8 @@
-import './PendingRequest.css'
+import { Navigate } from 'react-router-dom'
+import './CurrentRequest.css'
 
 
-const PendingRequest = ({ 
+const CurrentRequest = ({ 
   profile, 
   order, 
   updateOrder 
@@ -10,9 +11,10 @@ const PendingRequest = ({
     e.preventDefault()
     const updatedOrder = {
       ...order,
-      status: "accepted",
+      status: "completed",
     }
     updateOrder(updatedOrder)
+    Navigate('/customer/:id')
   }
 
     return ( 
@@ -20,9 +22,9 @@ const PendingRequest = ({
         <p>{profile.name} </p>
         <p>{profile.address}</p>
         <p>{order.date}</p>
-        <button type="submit" onClick={handleSubmit}>Accept Order</button>
+        <button type="submit" onClick={handleSubmit}>Mark Completed</button>
       </div>
      );
   }
  
-export default PendingRequest;
+export default CurrentRequest;
