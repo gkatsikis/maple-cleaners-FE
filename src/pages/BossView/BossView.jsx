@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom'
 
 
 const BossView = ({ user, orders, profiles }) => {
+
+  const updateOrder = async ()
   
   return ( 
     <div className="shell">

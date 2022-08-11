@@ -13,6 +13,5 @@ const PendingRequest = ({ profile, order }) => {
       </div>
      );
   }
-  // may have to do a global conditional based off of profiles and orders in order for it to work
  
 export default PendingRequest;

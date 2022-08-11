@@ -56,4 +56,20 @@ async function deleteOrder(id) {
   }
 }
 
+export const update = async (order) => {
+  try {
+    const res = await fetch(`${BASE_URL}${order.id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify(order)
+    })
+    return await res.json()
+  } catch (error) {
+    throw error
+  }
+}
+
 export { getAllOrders, getOneOrder, createOrder, deleteOrder }
