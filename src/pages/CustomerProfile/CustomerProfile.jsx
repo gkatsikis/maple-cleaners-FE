@@ -21,10 +21,14 @@ const CustomerProfile = ({ profiles }) => {
     getProfile()
   }, [profiles, id])
 
+  if(!custProfile){
+    return 'loading...'
+  }
+
   return ( 
     <div className="customerProfile">
       <h1>Name in Customer Profile</h1>
-      <p>{custProfile.name}</p>
+      <h2>{custProfile.name}</h2>
       {/* <CustomerInfo />
       <OrderHistory />
       <ContactCustomer />
