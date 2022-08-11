@@ -8,15 +8,20 @@ import CurrentRequests from '../../components/CurrentRequests/CurrentRequests';
 import { Link } from 'react-router-dom'
 
 
-const BossView = ({ user, orders, profiles }) => {
 
-  const updateOrder = async ()
+const BossView = ({ 
+  user, 
+  orders, 
+  profiles, 
+  updateOrder 
+}) => {
+
   
   return ( 
     <div className="shell">
       <h1>Welcome Boss</h1>
       <div className="top">
-        <PendingRequests orders={orders} profiles={profiles} />
+        <PendingRequests orders={orders} profiles={profiles} updateOrder={updateOrder} />
         <CurrentRequests profiles={profiles} orders={orders} />
 
       </div>

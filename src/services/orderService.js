@@ -56,7 +56,7 @@ async function deleteOrder(id) {
   }
 }
 
-export const update = async (order) => {
+const update = async (order) => {
   try {
     const res = await fetch(`${BASE_URL}${order.id}`, {
       method: 'PUT',
@@ -72,4 +72,4 @@ export const update = async (order) => {
   }
 }
 
-export { getAllOrders, getOneOrder, createOrder, deleteOrder }
+export { getAllOrders, getOneOrder, createOrder, deleteOrder, update }

@@ -71,6 +71,13 @@ const App = () => {
     }
   }, [user])
 
+  const updateOrder = async (orderData) => {
+    const updatedOrder = await orderService.update(orderData)
+    setOrders(orders.map((order) => (
+      order.id === updatedOrder.id ? updatedOrder : order
+    )))
+  }
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -91,7 +98,7 @@ const App = () => {
         />
         <Route
           path="/boss"
-          element={user ? <BossView user={user} orders={orders} profiles={profiles} /> : <Navigate to="/login" />}
+          element={user ? <BossView user={user} orders={orders} profiles={profiles} updateOrder={updateOrder} /> : <Navigate to="/login" />}
         />
         <Route
           path="/signup"
