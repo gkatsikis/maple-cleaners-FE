@@ -2,11 +2,9 @@ import './AddBalance.css'
 import React, { useState } from 'react';
 
 
-const AddBalance = (props) => {
-  const [charge, setCharge] = useState({
-    add: 0,
-    sub: 0,
-  })
+const AddBalance = ({ profile }) => {
+  console.log('hello', profile)
+  const [charge, setCharge] = useState(0)
 
   const handleChange = e => {
     setCharge({ ...charge, [e.target.name]: e.target.value })
@@ -14,16 +12,11 @@ const AddBalance = (props) => {
 
   return ( 
     <form className="addBalance">
-      <label htmlFor="add-balance">Add Balance</label>
+      <label htmlFor="add-balance">Modify Balance</label>
       <input
-        required name="add"
-        value={charge.add}
+        required name="modify"
+        value={charge.modify}
         onChange={handleChange}
-      />
-      <label htmlFor="subtract-balance">Subtract Balance</label>
-      <input
-        required name="sub"
-        value={charge.sub}
       />
         <button>Change Balance</button>
     </form>

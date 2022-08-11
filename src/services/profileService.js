@@ -26,4 +26,21 @@ async function getOneProfile(id) {
   }
 }
 
-export { getAllProfiles, getOneProfile }
+async function updateProfile(profile) {
+  try {
+    const res = await fetch(`${BASE_URL}${profile.id}`,
+    {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify(profile)
+    })
+    return await res.json()
+  } catch (error) {
+    throw error
+  }
+}
+
+export { getAllProfiles, getOneProfile, updateProfile }
