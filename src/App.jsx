@@ -78,6 +78,13 @@ const App = () => {
     )))
   }
 
+  const updateProfile = async (profileData) => {
+    const updatedProfile = await profileService.update(profileData)
+    setProfiles(profiles.map((profile) => (
+      profile.id === updatedProfile.id ? updatedProfile : profile
+    )))
+  }
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -122,7 +129,7 @@ const App = () => {
         />
         <Route
           path="/customer/:id"
-          element={<CustomerProfile profiles={profiles} />}
+          element={<CustomerProfile profiles={profiles} updateProfile={updateProfile} />}
         />
         <Route
           path="/orderhistory"

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 
 
-const CustomerProfile = ({ profiles }) => {
+const CustomerProfile = ({ profiles, updateProfile }) => {
   const [custProfile, setCustProfile] = useState()
   const { id } = useParams()
 
@@ -25,7 +25,7 @@ const CustomerProfile = ({ profiles }) => {
   if(!custProfile){
     return 'loading...'
   }
-
+  
   return ( 
     <div className="customerProfile">
       <h2>{custProfile.name}</h2>
@@ -35,7 +35,7 @@ const CustomerProfile = ({ profiles }) => {
       <OrderHistory />
       <ContactCustomer />
        */}
-      <AddBalance profile={custProfile} />
+      <AddBalance profile={custProfile} updateProfile={updateProfile} />
     </div>
    );
 }

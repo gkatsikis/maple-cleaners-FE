@@ -26,7 +26,7 @@ async function getOneProfile(id) {
   }
 }
 
-async function updateProfile(profile) {
+async function update(profile) {
   try {
     const res = await fetch(`${BASE_URL}${profile.id}`,
     {
@@ -43,4 +43,4 @@ async function updateProfile(profile) {
   }
 }
 
-export { getAllProfiles, getOneProfile, updateProfile }
+export { getAllProfiles, getOneProfile, update }

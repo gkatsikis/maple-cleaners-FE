@@ -1,5 +1,5 @@
-import { Navigate } from 'react-router-dom'
 import './CurrentRequest.css'
+import { useNavigate } from 'react-router-dom'
 
 
 const CurrentRequest = ({ 
@@ -7,6 +7,9 @@ const CurrentRequest = ({
   order, 
   updateOrder 
 }) => {
+
+  let navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const updatedOrder = {
@@ -14,7 +17,7 @@ const CurrentRequest = ({
       status: "completed",
     }
     updateOrder(updatedOrder)
-    Navigate('/customer/:id')
+    navigate('/customer/:id')
   }
 
     return ( 
