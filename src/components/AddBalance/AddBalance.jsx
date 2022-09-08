@@ -14,12 +14,11 @@ const AddBalance = ({ profile, updateProfile }) => {
     const updatedProfile = {
       ...profile,
       balance: parseInt(charge.amount) + profile.balance
-      // parseInt(charge)
     }
     updateProfile(updatedProfile)
   }
   console.log(charge.amount)
-  // handle submit function is turning prior balances of $0 to null with any addition/ likely server-side error
+  
   return ( 
     <form className="addBalance">
       <label htmlFor="add-balance">Modify Balance</label>
